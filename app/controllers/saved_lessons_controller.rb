@@ -1,0 +1,2 @@
+class SavedLessonsController < ApplicationController
+end
