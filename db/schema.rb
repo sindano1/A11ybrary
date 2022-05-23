@@ -10,28 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_18_172526) do
+ActiveRecord::Schema.define(version: 2022_05_20_143141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "codes", force: :cascade do |t|
     t.integer "lesson_id"
-    t.string "code"
     t.string "language"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "accessible_code"
+    t.string "inaccessible_code"
   end
 
   create_table "lessons", force: :cascade do |t|
     t.string "title"
     t.string "accessibility_features"
-    t.string "type"
     t.boolean "has_transcript"
     t.string "transcript"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "lesson_type"
   end
 
   create_table "saved_lessons", force: :cascade do |t|

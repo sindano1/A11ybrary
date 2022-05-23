@@ -5,3 +5,56 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+puts 'seeding lessons'
+5.times do
+    Lesson.create!(
+        title: `headers lesson #{i += 1}`, 
+        accessibility_features: "none",
+        has_transcript: [true, false].sample,
+        transcript: "none",
+        content: "lorem ipsum",
+        lesson_type: "headers"
+    )
+end
+3.times do
+    Lesson.create!(
+        title: `contrast lesson #{i += 1}`, 
+        accessibility_features: "none",
+        has_transcript: [true, false].sample,
+        transcript: "none",
+        content: "lorem ipsum",
+        lesson_type: "contrast"
+    )
+end
+puts 'lessons seeded'
+
+
+puts 'Seeding users'
+5.times do
+    User.create!(
+        username: Faker::Name.first_name ,
+        password: "password",
+        email: Faker::Internet.email
+    )
+end
+puts 'users Seeded'
+
+
+puts "users taking lessons"
+User.all.each do |user|
+  rand(1..8).times do
+    # get a random book
+    lesson = Lesson.find(Lesson.pluck(:id).sample)
+
+    UserLesson.create!(
+        user_id: user.id, 
+        lesson_id: lesson.id, 
+        completed: [true, false].sample, 
+        notes: "doller sit"
+    )
+  end
+end
+puts "user_lessons seeded!"

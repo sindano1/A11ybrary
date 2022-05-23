@@ -44,7 +44,7 @@ function Login() {
                     res.json().then((data) => {
                         setUser(data);
                         setIsLoggedIn(true);
-                        navigate('/lesson-sandbox');
+                        navigate('/your-lessons');
                     })
                 } else {
                     navigate('/login')

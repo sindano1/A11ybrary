@@ -6,7 +6,9 @@ import { Routes, Route } from "react-router-dom";
 // import Landing from './Components/Landing/Landing';
 import Login from './Components/Login';
 import NavBar from './Components/NavBar';
+import AllLessonsPage from './Components/AllLessonsPage';
 // import Footer from './Components/Footer/Footer';
+import 'flowbite'
 
 function App() {
 
@@ -18,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/lesson-sandbox" element={<LessonSandbox />}/>
         <Route path="/login" element={<Login />}/>
+        <Route path="/your-lessons" element={<AllLessonsPage />}/>
       </Routes>
       </UserProvider>
     </div>
