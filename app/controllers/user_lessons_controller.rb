@@ -24,6 +24,7 @@ class UserLessonsController < ApplicationController
                 head :no_content
             # double check this one -> render json: {}, status :accepted
             end
+            
            
         
            private

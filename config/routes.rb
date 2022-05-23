@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   # Custom route to stay logged in
   get "/auth", to: "sessions#show"
 
+  get "/your-lessons", to: "users#your_lessons"
+
 
 
 

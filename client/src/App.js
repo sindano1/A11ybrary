@@ -8,7 +8,7 @@ import Login from './Components/Login';
 import NavBar from './Components/NavBar';
 import AllLessonsPage from './Components/AllLessonsPage';
 // import Footer from './Components/Footer/Footer';
-import 'flowbite'
+import 'react-daisyui'
 
 function App() {
 
