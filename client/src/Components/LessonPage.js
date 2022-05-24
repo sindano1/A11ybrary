@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 import LessonSandbox from "./LessonSandbox";
 import {useParams} from 'react-router-dom'
 import CompletedLessonCheck from "./CompletedLessonCheck";
+import LessonContent from "./LessonContent";
 
 function LessonPage ({lessons, setLessons}) {
     const [specificLesson, setSpecificLesson] = useState({})
@@ -62,7 +63,8 @@ console.log(`params from url: `, {id})
     return (
         <>
         <p>This is the lessons page</p>
-        <LessonSandbox lessons={lessons} setLessons={setLessons} specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/>
+        <LessonContent />
+        {/* <LessonSandbox lessons={lessons} setLessons={setLessons} specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/> */}
         </>
     )
 }
