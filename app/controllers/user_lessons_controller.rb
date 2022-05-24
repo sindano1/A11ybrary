@@ -24,6 +24,18 @@ class UserLessonsController < ApplicationController
                 head :no_content
             # double check this one -> render json: {}, status :accepted
             end
+
+            def your_lesson_sandbox
+               render json: User.find(session[:user_id]).lessons, include: :codes
+            end
+
+            def lesson_sandbox
+                user_lesson = User.find(session[:user_id]).user_lessons.find_by(lesson_id: (params[:id]))
+                # .includes(user_lessons: [:codes])
+                render json: user_lesson
+                # .includes(:codes)
+                # (:include => [:efforts])
+            end
             
            
         

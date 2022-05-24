@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   get "/your-lessons", to: "users#your_lessons"
 
+  get '/your-lesson-sandbox', to: "user_lessons#your_lesson_sandbox"
+
+  get '/lesson-sandbox/:id', to: "user_lessons#lesson_sandbox"
+
 
 
 

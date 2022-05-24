@@ -29,7 +29,10 @@ class UsersController < ApplicationController
 
     def your_lessons
         currentUser = User.find(session[:user_id])
+        # .includes(user_lessons: [:codes])
         render json: currentUser.user_lessons
+        # .includes(:codes)
+        # (:include => [:efforts])
     end
 
 private

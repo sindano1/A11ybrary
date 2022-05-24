@@ -56,5 +56,16 @@ User.all.each do |user|
         notes: "doller sit"
     )
   end
+  puts "user_lessons seeded!"
+
+
+puts "seeding code"
+Code.create!(
+    # Headers lesson sandbox
+    lesson_id: 1,
+    language: "ReactJS",
+    accessible_code: "https://codesandbox.io/s/headerslesson1-accessible-o8z2fh",
+    inaccessible_code: "https://codesandbox.io/s/headerslesson1-inaccessible-5t7j5b"
+)
+puts "code seeded"
 end
-puts "user_lessons seeded!"
