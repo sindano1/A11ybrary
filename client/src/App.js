@@ -42,7 +42,6 @@ function App() {
         <Route path="/login" element={<Login />}/>
         <Route path="/your-lessons" element={<AllLessonsPage lessons={lessons} setLessons={setLessons}/>}/>
         <Route path="/lesson/:id" element={<LessonPage lessons={lessons} setLessons={setLessons}/>}/>
-
       </Routes>
       </UserProvider>
     </div>

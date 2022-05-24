@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
 import useLoginState from "./CustomHooks/useLoginState";
 import LessonType from "./LessonType"
@@ -9,6 +9,7 @@ import CompletedLessonCheck from "./CompletedLessonCheck";
 // import {useUserLessons} from './CustomHooks/useUserLessons'
 
 function AllLessonsPage({lessons, setLessons}) {
+    const  navigate = useNavigate();
 
     useLoginState()
 
@@ -51,9 +52,11 @@ function AllLessonsPage({lessons, setLessons}) {
                                     <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500"> {`Go To ${lessonInst.lesson.title}`} </a>
                                 </div>
                             </li> */}
+                            <Link to={`/lesson/${lessonInst.lesson.title}`}>
                             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                 {`Go to ${lessonInst.lesson.title}`}
                             </button>
+                            </Link>
                             <dd className="mt-1 text-sm text-gray-900 sm:mt-0">
                                 <CompletedLessonCheck lessonInst={lessonInst} lessonState={lessons} setLessonState={setLessons} />
                             </dd>
