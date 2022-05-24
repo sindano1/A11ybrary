@@ -7,15 +7,27 @@ import LessonSandbox from "./LessonSandbox";
 import {useParams} from 'react-router-dom'
 import CompletedLessonCheck from "./CompletedLessonCheck";
 import LessonContent from "./LessonContent";
+import LessonNotes from "./LessonNotes";
 
 function LessonPage ({lessons, setLessons}) {
     const [specificLesson, setSpecificLesson] = useState({})
     const [isLessonTriggered, setIsLessonTriggered] = useState(false)
+    const [hasLoaded, setHasLoaded] = useState(false)
+
     let { id } = useParams();
+
+    useEffect(() => {
+        fetch(`/lesson-sandbox/${id}`)
+        .then(resp => resp.json())
+        .then(lesson => {
+            setSpecificLesson(lesson)
+            setHasLoaded(true)
+        })
+        }, [setHasLoaded])
 
 
     // useEffect(() => {
-    //     let isLessonTriggered = true;
+    //     setIsLessonTriggered(true)
       
     //     // declare the async data fetching function
     //     const fetchData = async () => {
@@ -27,6 +39,7 @@ function LessonPage ({lessons, setLessons}) {
     //       // set state with the result if `isLessonTriggered` is true
     //       if (isLessonTriggered) {
     //         setSpecificLesson(lesson);
+    //         console.log(`useEffect lesson: `, lesson)
     //       }
     //     }
     //     // call the function
@@ -39,8 +52,7 @@ function LessonPage ({lessons, setLessons}) {
     //   }, [])
 
 // console.log(`lesson trigger: `, specificLesson)
-console.log(`mapped lesson`, lessons.map(lesson => lesson))
-console.log(`params from url: `, {id})
+
 
 
 //     const filterLesson = lessons.filter(lesson => {
@@ -64,7 +76,8 @@ console.log(`params from url: `, {id})
         <>
         <p>This is the lessons page</p>
         <LessonContent />
-        {/* <LessonSandbox lessons={lessons} setLessons={setLessons} specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/> */}
+        <LessonSandbox specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/>
+        <LessonNotes specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/>
         </>
     )
 }

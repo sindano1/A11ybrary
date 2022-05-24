@@ -2,32 +2,45 @@ import React, { useState, useEffect } from "react";
 import {useParams} from 'react-router-dom'
 
 
-function LessonSandbox({lessons, setLessons, specificLesson, setSpecificLesson}) {
+function LessonSandbox({specificLesson, setSpecificLesson}) {
 
     const [toggleSandbox, setToggleSandbox] = useState(true)
-    // const [specificLesson, setSpecificLesson] = useState({})
+
+
     let { id } = useParams();
 
     function handleToggleSandbox() {
         setToggleSandbox((toggleSandbox) => !toggleSandbox);
     }
 
-    // useEffect(() => {
-    // fetch(`/lesson-sandbox/${id}`)
-    // .then(resp => resp.json())
-    // .then(lesson => setSpecificLesson(lesson))
-    // }, [setSpecificLesson])
+
+    
+
+    console.log(`lesson from sandbox component: `, {specificLesson})
+
 
 
     // function retrieveCodes() {
-    //     console.log(specificLesson.codes.map(code => code.accessible_code))
+    //     if (hasLoaded === true && toggleSandbox === true){
+    //         console.log(`access code: `, specificLesson.codes.map(code => code.accessible_code))
+    //     } else {
+    //         console.log(`inaccess code: `,specificLesson.codes.map(code => code.inaccessible_code))
+    //     }
     // }
     //     retrieveCodes()
+
+        // So far I can get the code url that is needed
+        // I need to conditionally render the url depending on what sandbox i want shown.
+        // "true" sandbox in toggle sandbox is accessible
+        // if sandbox true
 
     return (
         <>
             <h1>Hello world</h1>
-            {toggleSandbox ? (
+            <p>These are notes: {specificLesson.notes}</p>
+            
+            {/* {toggleSandbox ? <button onClick={handleToggleSandbox}>Switch to inaccessible code</button> : <button onClick={handleToggleSandbox}>Switch to accessible code</button> } */}
+            {/* {toggleSandbox ? (
             <>
                 <iframe title="accessible code sandbox"
                     src="https://codesandbox.io/s/headerslesson1-accessible-o8z2fh"
@@ -51,7 +64,7 @@ function LessonSandbox({lessons, setLessons, specificLesson, setSpecificLesson})
                 <p>Viewing Inaccessible Code</p>
                 <button onClick={handleToggleSandbox}>Switch to accessible code</button>
             </>
-            )}
+            )} */}
         </>
     )
 }
