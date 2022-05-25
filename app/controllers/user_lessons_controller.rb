@@ -38,7 +38,8 @@ class UserLessonsController < ApplicationController
             end
 
             def update_notes
-                user_lesson = User.find(session[:user_id]).user_lessons.find_by(lesson_id: (params[:id])).update!(user_lesson_params)
+                user_lesson = User.find(session[:user_id]).user_lessons.find_by(lesson_id: (params[:id]))
+                user_lesson.update!(user_lesson_params)
                 render json: user_lesson, status: :accepted
             end
             

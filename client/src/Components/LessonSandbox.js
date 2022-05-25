@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {useParams} from 'react-router-dom'
 
 
-function LessonSandbox({specificLesson, setSpecificLesson}) {
+function LessonSandbox({specificLesson, setSpecificLesson, hasLoaded, setHasLoaded}) {
 
     const [toggleSandbox, setToggleSandbox] = useState(true)
 
@@ -16,6 +16,23 @@ function LessonSandbox({specificLesson, setSpecificLesson}) {
     console.log(`lesson in sandbox`, specificLesson)
     console.log(`codes in sandbox`, specificLesson.codes)
     // console.log(`access code`, specificLesson.codes.map(code => code.accessible_code))
+
+    function retrieveSandboxUrl(){
+        if (!hasLoaded) {
+            console.log(`url false`)
+            return <p>Loading...</p>
+        } else {
+            if (specificLesson.length === 0) {
+                return ( <p> lesson NOT loaded </p>)
+            } else {
+                console.log(`lesson true`)
+               return  (
+                  `${specificLesson.codes.map(code => code.accessible_code)}`
+            )
+          
+               }
+        }
+    }
 
 
     return (

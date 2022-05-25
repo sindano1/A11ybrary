@@ -7,8 +7,9 @@ function UserProvider({children}){
         const [user, setUser] = useState({});
         const [isLoggedIn, setIsLoggedIn] = useState(false);
         const [userLessons, setUserLessons] = useState([])
+        const [singleLesson, setSingleLesson] = useState({})
         // this value will be available to child components of this provider
-        return (<UserContext.Provider value={{ user, setUser, isLoggedIn, setIsLoggedIn, userLessons, setUserLessons }}>
+        return (<UserContext.Provider value={{ user, setUser, isLoggedIn, setIsLoggedIn, userLessons, setUserLessons, singleLesson, setSingleLesson }}>
                         {children}
                 </UserContext.Provider>)
 }

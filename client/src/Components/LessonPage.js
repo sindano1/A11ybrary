@@ -9,6 +9,8 @@ import CompletedLessonCheck from "./CompletedLessonCheck";
 import LessonContent from "./LessonContent";
 import LessonNotes from "./LessonNotes";
 import { UserContext } from "./UserContext";
+// import useSingleLesson from "./CustomHooks/useSingleLesson";
+
 
 function LessonPage ({lessons, setLessons}) {
     const [specificLesson, setSpecificLesson] = useState({})
@@ -17,6 +19,7 @@ function LessonPage ({lessons, setLessons}) {
     // const [codeUrl, setCodeUrl] = useState([])
     const { user, setUser, isLoggedIn, setIsLoggedIn, userLessons, setUserLessons } = useContext(UserContext)
 
+    // const [singleLesson, setSingleLesson] = useSingleLesson();
     let { id } = useParams();
 
     useEffect(() => {
@@ -42,7 +45,7 @@ function LessonPage ({lessons, setLessons}) {
                    return  (
                        <>
                        <p>Lesson loaded</p>
-                    {/* <LessonSandbox specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/> */}
+                    <LessonSandbox hasLoaded={hasLoaded} setHasLoaded={setHasLoaded} specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/>
                     <LessonNotes specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/>
                        </>
                 //    <>
