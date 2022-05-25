@@ -78,6 +78,7 @@ function LessonPage ({lessons, setLessons}) {
         <LessonContent />
         <LessonSandbox specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/>
         <LessonNotes specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/>
+        {/* {specificLesson.notes ? <LessonNotes specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/> : <p>Loading...</p>} */}
         </>
     )
 }

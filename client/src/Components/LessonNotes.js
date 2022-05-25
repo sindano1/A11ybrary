@@ -8,10 +8,6 @@ function LessonNotes({ specificLesson, setSpecificLesson }) {
         "notes" : specificLesson.notes ,
     });
     const { notes } = newNotes;
-    
-    // useEffect(() => {
-    //     specificLesson.notes
-    // })
 
     function handleNotesFormChange(e) {
         setNewNotes({ ...newNotes, [e.target.name]: e.target.value })

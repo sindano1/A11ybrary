@@ -16,7 +16,7 @@ function LessonSandbox({specificLesson, setSpecificLesson}) {
 
     
 
-    console.log(`lesson from sandbox component: `, {specificLesson})
+    // console.log(`lesson from sandbox component: `, {specificLesson})
 
 
 
