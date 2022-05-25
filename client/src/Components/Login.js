@@ -1,12 +1,16 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "./UserContext";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from 'react-daisyui'
+import 'react-daisyui'
+
 
 function Login() {
     //Fetch the user states from UserContext
     const { setUser, setIsLoggedIn } = useContext(UserContext);
     //Use Navigate
     const navigate = useNavigate();
+
 
     //Two states for each form.
     const [loginFormState, setLoginFormState] = useState({
@@ -90,6 +94,7 @@ function Login() {
     }
     return (
         <>
+        
             <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-md w-full space-y-8">
                     <div>

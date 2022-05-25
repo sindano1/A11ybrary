@@ -18,30 +18,13 @@ function AllLessonsPage({lessons, setLessons}) {
 
     useLoginState()
 
-    // const [lessons, setLessons] = useState([])
-    // // const { user, userLibrary, setUserLibrary, userLessons, setUserLessons } = useContext(UserContext);
-    // // console.log(`User lessons from context:`, userLessons)
-    // // This is where a users lessons will live
-
-    // // useUserLessons()
-    // // LessonType lives on this page
-    // // LessonSummary nested within LessonType
-    // // Notes can drop down from LessonSummary
-    // useEffect(() => {
-    //     fetch('/your-lessons')
-    //         .then(resp => resp.json())
-    //         .then(lessons => {
-    //             setLessons(lessons)
-    //         })
-    // }, [setLessons])
-
 
     function renderLessons() {
         const mappedLessons = userLessons.map(lessonInst => {
             return (
                 <div className="border-t border-gray-200" key={lessonInst.id}>
                     <dl>
-                        <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-6 sm:gap-4 sm:px-6">
+                        <div className="bg-gray-50 px-4 py-5 sm:grid sm:auto-cols-max sm:grid-cols-6 sm:gap-4 sm:px-6">
                             <dd className="mt-1 text-sm text-gray-900 sm:mt-0">{lessonInst.lesson.title}</dd>
                             <dd className="mt-1 text-sm text-gray-900 sm:mt-0">languages - in codes</dd>
                             <dd className="mt-1 text-sm text-gray-900 sm:mt-0">{lessonInst.lesson.accessibility_features}</dd>

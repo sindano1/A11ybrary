@@ -15,9 +15,9 @@ function LessonContent() {
 
     return (
         <div>
-            <h1>{singleLesson.title}</h1>
+            <h1 className="text-4xl">{singleLesson.title}</h1>
             <p>Available access features: {singleLesson.accessiblity_features}</p>
-            <p>{singleLesson.content}</p>
+            <p className="whitespace-pre-wrap">{singleLesson.content}</p>
         </div>
     )
 }

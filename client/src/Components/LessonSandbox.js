@@ -3,18 +3,15 @@ import {useParams} from 'react-router-dom'
 
 
 function LessonSandbox({specificLesson, setSpecificLesson, hasLoaded, setHasLoaded}) {
-
     const [toggleSandbox, setToggleSandbox] = useState(true)
-
-
     let { id } = useParams();
 
     function handleToggleSandbox() {
         setToggleSandbox((toggleSandbox) => !toggleSandbox);
     }
 
-    console.log(`lesson in sandbox`, specificLesson)
-    console.log(`codes in sandbox`, specificLesson.codes)
+    // console.log(`lesson in sandbox`, specificLesson)
+    // console.log(`codes in sandbox`, specificLesson.codes)
     // console.log(`access code`, specificLesson.codes.map(code => code.accessible_code))
 
     function retrieveSandboxUrl(){
@@ -37,8 +34,6 @@ function LessonSandbox({specificLesson, setSpecificLesson, hasLoaded, setHasLoad
 
     return (
         <>
-            <h1>Hello world</h1>
-            <p>These are notes: {specificLesson.notes}</p>
             {toggleSandbox ? (
             <>
                 <iframe title="accessible code sandbox"

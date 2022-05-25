@@ -8,6 +8,7 @@ import 'daisyui'
 import { UserProvider } from './Components/UserContext';
 
 ReactDOM.render(
+  
   <BrowserRouter>
   <UserProvider>
     <App />
