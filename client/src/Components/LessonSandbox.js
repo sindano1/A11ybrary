@@ -15,7 +15,7 @@ function LessonSandbox({specificLesson, setSpecificLesson}) {
 
     console.log(`lesson in sandbox`, specificLesson)
     console.log(`codes in sandbox`, specificLesson.codes)
-    console.log(`access code`, specificLesson.codes.map(code => code.accessible_code))
+    // console.log(`access code`, specificLesson.codes.map(code => code.accessible_code))
 
 
     return (

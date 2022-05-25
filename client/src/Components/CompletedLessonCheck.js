@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import useLoginState from "./CustomHooks/useLoginState";
 
 function CompletedLessonCheck({ lessonInst, lessonState, setLessonState }) {
 
+    useLoginState()
     const [checked, setChecked] = useState(lessonInst.completed)
 
 

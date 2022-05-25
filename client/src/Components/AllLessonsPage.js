@@ -5,9 +5,15 @@ import useLoginState from "./CustomHooks/useLoginState";
 // import 'flowbite';
 import { Collapse } from 'react-daisyui'
 import CompletedLessonCheck from "./CompletedLessonCheck";
-// import {useUserLessons} from './CustomHooks/useUserLessons'
+import useUserLessons from "./CustomHooks/useUserLessons";
 
 function AllLessonsPage({lessons, setLessons}) {
+
+    useLoginState()
+    const [userLessons, setUserLessons] = useUserLessons();
+
+    const { user, setUser, isLoggedIn, setIsLoggedIn} = useContext(UserContext);
+  
     const  navigate = useNavigate();
 
     useLoginState()
@@ -31,7 +37,7 @@ function AllLessonsPage({lessons, setLessons}) {
 
 
     function renderLessons() {
-        const mappedLessons = lessons.map(lessonInst => {
+        const mappedLessons = userLessons.map(lessonInst => {
             return (
                 <div className="border-t border-gray-200" key={lessonInst.id}>
                     <dl>

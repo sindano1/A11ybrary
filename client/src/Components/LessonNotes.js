@@ -13,9 +13,12 @@ function LessonNotes({ specificLesson, setSpecificLesson }) {
         setNewNotes({ ...newNotes, [e.target.name]: e.target.value })
     }
 
-    function handleSaveNotes(e) {
+
+    async function handleSaveNotes(e) {
         e.preventDefault()
         console.log(`saved it!`)
+
+        // PATCH to notes
 
         const configObj = {
             method: "PATCH",
@@ -26,13 +29,12 @@ function LessonNotes({ specificLesson, setSpecificLesson }) {
             body: JSON.stringify(newNotes)
         }
 
-        fetch(`/lesson-sandbox/${id}`, configObj)
-            .then(res => {
+        const res =  await fetch(`/lesson-sandbox/${id}`, configObj)
                 if (res.ok) {
-                    res.json().then(lessonNewNote => {
-                        setSpecificLesson(lessonNewNote)
+                    const newNoteRes = await res.json()
+                        setSpecificLesson(newNoteRes)
                         console.log(specificLesson)
-                        return setNewNotes(lessonNewNote)
+                        return setNewNotes(newNoteRes)
 
                         // setLessonState(lessonState.map(lesson => {
                         //     if (lesson.id !== lessonInst.id) {
@@ -41,16 +43,54 @@ function LessonNotes({ specificLesson, setSpecificLesson }) {
                         //         return lessonInst
                         //     }
                         
-                    })
                 } else {
                     console.log("Oops. Something went wrong.")
                 }
-            })
+            }
 
         // setNewNotes({
         //     "notes" : newNotes
         // })
-    }
+    
+
+    // function handleSaveNotes(e) {
+    //     e.preventDefault()
+    //     console.log(`saved it!`)
+
+    //     const configObj = {
+    //         method: "PATCH",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Accepted": "application/json"
+    //         },
+    //         body: JSON.stringify(newNotes)
+    //     }
+
+    //     fetch(`/lesson-sandbox/${id}`, configObj)
+    //         .then(res => {
+    //             if (res.ok) {
+    //                 res.json().then(lessonNewNote => {
+    //                     setSpecificLesson(lessonNewNote)
+    //                     console.log(specificLesson)
+    //                     return setNewNotes(lessonNewNote)
+
+    //                     // setLessonState(lessonState.map(lesson => {
+    //                     //     if (lesson.id !== lessonInst.id) {
+    //                     //         return lesson
+    //                     //     } else {
+    //                     //         return lessonInst
+    //                     //     }
+                        
+    //                 })
+    //             } else {
+    //                 console.log("Oops. Something went wrong.")
+    //             }
+    //         })
+
+    //     // setNewNotes({
+    //     //     "notes" : newNotes
+    //     // })
+    // }
 
 
     return (

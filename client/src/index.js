@@ -5,9 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import 'daisyui'
+import { UserProvider } from './Components/UserContext';
+
 ReactDOM.render(
   <BrowserRouter>
+  <UserProvider>
     <App />
+    </UserProvider>
   </BrowserRouter>,
   document.getElementById('root')
 );

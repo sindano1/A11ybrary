@@ -2,18 +2,20 @@
 // Lesson Sandbox is contained within this page
 // Lesson Content is contained within this page
 // Notes are housed in this page
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import LessonSandbox from "./LessonSandbox";
 import {useParams} from 'react-router-dom'
 import CompletedLessonCheck from "./CompletedLessonCheck";
 import LessonContent from "./LessonContent";
 import LessonNotes from "./LessonNotes";
+import { UserContext } from "./UserContext";
 
 function LessonPage ({lessons, setLessons}) {
     const [specificLesson, setSpecificLesson] = useState({})
     const [isLessonTriggered, setIsLessonTriggered] = useState(false)
     const [hasLoaded, setHasLoaded] = useState(false)
     // const [codeUrl, setCodeUrl] = useState([])
+    const { user, setUser, isLoggedIn, setIsLoggedIn, userLessons, setUserLessons } = useContext(UserContext)
 
     let { id } = useParams();
 
@@ -40,8 +42,8 @@ function LessonPage ({lessons, setLessons}) {
                    return  (
                        <>
                        <p>Lesson loaded</p>
-                    <LessonSandbox specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/>
-                    {/* <LessonNotes specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/> */}
+                    {/* <LessonSandbox specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/> */}
+                    <LessonNotes specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/>
                        </>
                 //    <>
                 //     <iframe title="accessible code sandbox"

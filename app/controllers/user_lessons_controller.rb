@@ -47,7 +47,7 @@ class UserLessonsController < ApplicationController
            private
         
            def find_user_lesson
-                @user_lesson = UserLesson.find(params[:id])
+                @user_lesson = UserLesson.find(session[:user_id])
            end
         
            def user_lesson_params
