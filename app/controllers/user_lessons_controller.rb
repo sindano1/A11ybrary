@@ -36,6 +36,11 @@ class UserLessonsController < ApplicationController
                 # .includes(:codes)
                 # (:include => [:efforts])
             end
+
+            def update_notes
+                user_lesson = User.find(session[:user_id]).user_lessons.find_by(lesson_id: (params[:id])).update!(user_lesson_params)
+                render json: user_lesson, status: :accepted
+            end
             
            
         
