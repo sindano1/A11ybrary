@@ -13,6 +13,7 @@ function LessonPage ({lessons, setLessons}) {
     const [specificLesson, setSpecificLesson] = useState({})
     const [isLessonTriggered, setIsLessonTriggered] = useState(false)
     const [hasLoaded, setHasLoaded] = useState(false)
+    // const [codeUrl, setCodeUrl] = useState([])
 
     let { id } = useParams();
 
@@ -25,6 +26,63 @@ function LessonPage ({lessons, setLessons}) {
         })
         }, [setHasLoaded])
 
+
+       function retrieveLesson(){
+            if (!hasLoaded) {
+                console.log(`lesson false`)
+                return <p>Loading...</p>
+            } else {
+                if (specificLesson.length === 0) {
+                    return ( <p> lesson NOT loaded </p>)
+                } else {
+
+                    console.log(`lesson true`)
+                   return  (
+                       <>
+                       <p>Lesson loaded</p>
+                    <LessonSandbox specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/>
+                    {/* <LessonNotes specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/> */}
+                       </>
+                //    <>
+                //     <iframe title="accessible code sandbox"
+                //         src={specificLesson.codes.map(code => code.accessible_code)}
+                //         // {specificLesson.codes.map(code => code.accessible_code)}
+                //         style={{ width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden" }}
+                //         allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                //         sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+                //     ></iframe>
+                //     <p> Viewing Accessible Code</p>
+                //     <button onClick={handleToggleSandbox}>Switch to inaccessible code</button>
+                // </>
+                )
+                // } else if (specificLesson === true && toggleSandbox === false){
+                //     console.log(`lesson true toggle false`)
+                //     return(
+                //         <p> lesson loaded and sandbox false </p>
+                //     // <>
+                    //     <iframe title="inaccessible code sandbox"
+                    //         src= {specificLesson.codes.map(code => code.inaccessible_code)}
+                    //         style={{ width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden" }}
+                    //         allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                    //         sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+                    //     ></iframe>
+                    //     <p>Viewing Inaccessible Code</p>
+                    //     <button onClick={handleToggleSandbox}>Switch to accessible code</button>
+                    // </>
+                    
+                   }
+            }
+        }
+    
+        
+        // function retrieveCodes(){
+        //      specificLesson.codes.map(code =>{
+        //         //  console.log(code.accessible_code)
+        //         setCodeUrl(code.accessible_code)
+        //     })
+        //     retrieveCodes()
+        // }
+        // console.log(codeUrl)
 
     // useEffect(() => {
     //     setIsLessonTriggered(true)
@@ -76,8 +134,9 @@ function LessonPage ({lessons, setLessons}) {
         <>
         <p>This is the lessons page</p>
         <LessonContent />
-        <LessonSandbox specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/>
-        <LessonNotes specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/>
+        {retrieveLesson()}
+        {/* <LessonSandbox specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/> */}
+        {/* <LessonNotes specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/> */}
         {/* {specificLesson.notes ? <LessonNotes specificLesson={specificLesson} setSpecificLesson={setSpecificLesson}/> : <p>Loading...</p>} */}
         </>
     )
