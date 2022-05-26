@@ -34,10 +34,10 @@ function LessonPage({ lessons, setLessons }) {
 
                 // console.log(`lesson true`)
                 return (
-                    <>
-                        <LessonSandbox hasLoaded={hasLoaded} setHasLoaded={setHasLoaded} specificLesson={specificLesson} setSpecificLesson={setSpecificLesson} />
+                    <div className="pb-24 px-5">
                         <LessonNotes specificLesson={specificLesson} setSpecificLesson={setSpecificLesson} />
-                    </>
+                        <LessonSandbox hasLoaded={hasLoaded} setHasLoaded={setHasLoaded} specificLesson={specificLesson} setSpecificLesson={setSpecificLesson} />
+                    </div>
                 )
 
             }

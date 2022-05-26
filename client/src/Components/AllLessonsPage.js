@@ -42,6 +42,7 @@ function AllLessonsPage({lessons, setLessons}) {
                 </div>
             )
         })
+        // const sortedLessons = mappedLessons.sort(title)
         return mappedLessons
     }
 
@@ -50,7 +51,7 @@ function AllLessonsPage({lessons, setLessons}) {
 
     return (
         <>
-            <p>Hello world!</p>
+            <p>Welcome to your lessons!</p>
             <div className="border-t border-gray-200">
                 <dl>
                     <div className="border-t border-gray-200">
