@@ -6,6 +6,16 @@ Rails.application.routes.draw do
   resources :user_lessons
   resources :users
 
+  # Rails login/logout
+  namespace :admin do
+    get "/login", to: "sessions#new"
+    post "/login", to: "sessions#create"
+
+    resources :lessons
+  end
+
+
+
   # Custom routes for login/logout
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"

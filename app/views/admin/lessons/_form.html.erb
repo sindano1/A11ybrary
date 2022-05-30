@@ -1,0 +1,31 @@
+<%= form_with model: @user do |form| %>
+<div>
+  <%= form.label :title, "Title:" %>
+  <%= form.text_field :title %>
+</div>
+
+<div>
+  <%= form.label :accessibility_features, "Accessibility Features:" %>
+  <%= form.text_field :accessibility_features %>
+<%# this should have been an array woops %>
+
+ <%# <%= form.label :has_transcript, "Has Transcript:" %>
+  <%# this will need a radio yes or no%>
+  <%# transcript %>
+</div>
+
+<div>
+   <%= form.label :content, "Content:" %>
+   <%= form.text_field :content %>
+</div>
+
+<div>
+   <%= form.label :lesson_type, "Lesson Type:" %>
+   <%= form.text_field :lesson_type %>
+   <%# would like this to be a drop down but db is not filled out enough yet %>
+</div>
+
+<div>
+  <%= form.submit "Submit" %>
+  </div>
+<% end %>

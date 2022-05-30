@@ -1,0 +1,9 @@
+<p>another page another day</p>
+
+<% @lessons.each do |lesson| %>
+<div>
+    <%= lesson.title %>
+    <%= link_to "edit", edit_admin_lesson_path(lesson.id) %>
+</div>
+
+<% end %>
