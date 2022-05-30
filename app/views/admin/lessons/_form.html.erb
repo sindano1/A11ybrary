@@ -1,12 +1,12 @@
-<%= form_with model: @user do |form| %>
+<%= form_with model: [:admin, @lesson] do |form| %>
 <div>
   <%= form.label :title, "Title:" %>
-  <%= form.text_field :title %>
+  <%= form.text_field :title, size: "70x5"  %>
 </div>
 
 <div>
   <%= form.label :accessibility_features, "Accessibility Features:" %>
-  <%= form.text_field :accessibility_features %>
+  <%= form.text_field :accessibility_features, size: "70x5"  %>
 <%# this should have been an array woops %>
 
  <%# <%= form.label :has_transcript, "Has Transcript:" %>
@@ -16,12 +16,12 @@
 
 <div>
    <%= form.label :content, "Content:" %>
-   <%= form.text_field :content %>
+   <%= form.text_area :content, :size => "70x50"  %>
 </div>
 
 <div>
    <%= form.label :lesson_type, "Lesson Type:" %>
-   <%= form.text_field :lesson_type %>
+   <%= form.text_field :lesson_type, size: "70x5"  %>
    <%# would like this to be a drop down but db is not filled out enough yet %>
 </div>
 

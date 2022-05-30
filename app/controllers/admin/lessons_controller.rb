@@ -1,5 +1,5 @@
 class Admin::LessonsController < AdminController
-before_action :find_lesson, only: [:show, :update, :destroy]
+before_action :find_lesson, only: [:show, :update, :destroy, :edit]
 # skip_before_action :authorize, only: [:create, :show, :index]
 
 
@@ -9,7 +9,6 @@ before_action :find_lesson, only: [:show, :update, :destroy]
     end
 
     def show
-        render json: @lesson
     end
 
     def new
@@ -17,16 +16,20 @@ before_action :find_lesson, only: [:show, :update, :destroy]
     end
 
     def create
-        lesson = Lesson.create!(lesson_params)
-        render json: lesson, status: :created
+        @lesson = Lesson.new(lesson_params)
+       if @lesson.save!
+          redirect_to admin_lesson_path(@lesson.id)
+       end
     end
 
     def edit
     end
 
     def update
-        @lesson.update!(lesson_params)
-        render json: @lesson, status: :accepted
+        if @lesson.update!(lesson_params)
+            # flash.notice = "Whatever i want"
+            redirect_to admin_lesson_path(@lesson.id)
+        end
     end
 
     def destroy
@@ -43,6 +46,6 @@ before_action :find_lesson, only: [:show, :update, :destroy]
    end
 
    def lesson_params
-        params.permit(:title, :accessibility_features, :lesson_type, :has_transcript, :transcript, :content)
+        params.require(:lesson).permit(:title, :accessibility_features, :lesson_type, :has_transcript, :transcript, :content)
    end
 end

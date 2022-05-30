@@ -1,0 +1,22 @@
+<div>
+    <%= link_to "view all lessons", admin_lessons_path %>
+</div>
+
+<div>
+    <%= link_to "edit", edit_admin_lesson_path(@lesson.id) %>
+</div>
+
+<div>
+    <%= @lesson.title %>
+</div>
+<div>
+    <%= @lesson.accessibility_features %>
+</div>
+<div>
+    <%= @lesson.content %>
+</div>
+<div>
+    <%= @lesson.lesson_type %>
+</div>
+
+
