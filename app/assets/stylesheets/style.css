@@ -1,0 +1,223 @@
+/* Variables
+================================== */
+@bw: 3px; 
+
+
+/* Tables
+================================== */
+.Rtable {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 3em 0;
+  padding: 0;
+  position: relative; top: @bw; left: @bw;
+
+}
+
+.Rtable-cell {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 100%; 
+  padding: 0.8em 1.2em;
+  overflow: hidden; 
+  list-style: none;
+  border: solid @bw white;
+  background: fade(slategrey,20%);
+  > h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; }
+}
+
+/* Table column sizing
+================================== */
+.Rtable--2cols > .Rtable-cell  { width: 50%; }
+.Rtable--3cols > .Rtable-cell  { width: 33.33%; }
+.Rtable--4cols > .Rtable-cell  { width: 25%; }
+.Rtable--5cols > .Rtable-cell  { width: 20%; }
+.Rtable--6cols > .Rtable-cell  { width: 16.6%; }
+
+
+/* Page styling
+================================== */
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
+html { 
+  height: 100%;
+  background-color: #EEE; 
+}
+body {
+  box-sizing: border-box;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 2em;
+  max-width: 100%;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.2em;
+  background-color: white;
+  border: double 3px #DDD;
+  border-top: none; border-bottom: none;
+}
+h1, h2, h3, h4, h5, h6 { margin-top: 0; }
+h3 { font-size: 1.2em; }
+h4 { font-size: 1em; }
+strong { color: darken(slategrey,20%); }
+
+@tableColour: slategrey;
+
+
+
+/* Cell styles
+================================== */
+.Rtable-cell--dark {
+  background-color: slategrey;
+  border-color: darken(@tableColour,10%);
+  color: white; > h1, > h2, > h3, > h4, > h5, > h6 { color: white; }
+}
+.Rtable-cell--medium {
+  background-color: mix(white,@tableColour,50%);
+  border-color: mix(white,@tableColour,40%);
+}
+.Rtable-cell--light {
+  background-color: white;
+  border-color: mix(white,@tableColour,80%);
+}
+.Rtable-cell--highlight {
+  background-color: lightgreen;
+  border-color: darken(lightgreen,10%);
+}
+.Rtable-cell--alert {
+  background-color: darkorange;
+  border-color: darken(darkorange,10%);
+  color: white; > h1, > h2, > h3, > h4, > h5, > h6 { color: white; }
+}
+
+
+@breakpoint: 500px;
+
+/* Responsive
+==================================== */
+@media all and (max-width: @breakpoint) {
+  .Rtable--collapse  {
+    display: block;
+    > .Rtable-cell { width: 100% !important; }
+    > .Rtable-cell--foot { margin-bottom: 1em; }
+  }
+}
+
+// Non-Flex modernizer fallback
+.no-flexbox .Rtable {
+  display: block;
+  > .Rtable-cell { width: 100%; }
+  > .Rtable-cell--foot { margin-bottom: 1em; }
+}
+
+
+//////// Flexbox
+
+.parent {
+    display: flex;
+    height: 300px; /* Or whatever */
+  }
+  
+  .child {
+    width: 100px;  /* Or whatever */
+    height: 100px; /* Or whatever */
+    margin: auto;  /* Magic! */
+  }
+
+  .flex-container {
+    /* We first create a flex layout context */
+    display: flex;
+  
+    /* Then we define the flow direction 
+       and if we allow the items to wrap 
+     * Remember this is the same as:
+     * flex-direction: row;
+     * flex-wrap: wrap;
+     */
+    flex-flow: row wrap;
+  
+    /* Then we define how is distributed the remaining space */
+    justify-content: space-around;
+  }
+
+  .wrapper {
+    display: flex;  
+    flex-flow: row wrap;
+    font-weight: bold;
+    text-align: center; 
+  }
+  
+  .wrapper > * {
+    padding: 10px;
+    flex: 1 100%;
+  }
+
+  @media all and (min-width: 600px) {
+    .aside { flex: 1 0 0; }
+  }
+  
+  @media all and (min-width: 800px) {
+    .content    { flex: 3 0px; flex-basis: 100% }
+    .access-features{ order: 1; } 
+    .lesson-type { order: 2; }
+    .content    { order: 3; }
+    .sandbox-url  { order: 4; }
+  }
+  
+  body {
+    padding: 2em; 
+  }
+
+  /* @media all and (min-width: 800px) {
+    .language{ order: 1; }
+    .a-code{ order: 2; } 
+    .in-code { order: 3; }
+    .edit-btn    { order: 4; }
+    .new-btn { order: 5; }
+  } */
+
+  .sandbox-wrapper {
+    display: flex;  
+    flex-flow: row wrap;
+    font-weight: bold;
+    text-align: center; 
+    border: 2px solid black;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+  
+  .sandbox-wrapper > * {
+    padding: 10px;
+    flex: 1 100%;
+    
+  }
+  .sandbox-item{
+      background: pink;
+      flex-grow: 1;
+  }
+
+
+  .header {
+    background: tomato;
+    font-size: x-large;
+  }
+  
+  .sandbox-url {
+    background: lightgreen;
+  }
+
+  .content {
+    text-align: left;
+    background: deepskyblue;
+  }
+  
+  .access-features{
+    background: gold;
+  }
+  
+  .lesson-type {
+    background: hotpink;
+  }
+  .break-column {
+    flex-basis: 100%;
+    width: 0;
+  }
+  
