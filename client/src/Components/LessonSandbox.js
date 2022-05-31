@@ -32,13 +32,17 @@ function LessonSandbox({specificLesson, setSpecificLesson, hasLoaded, setHasLoad
         }
     }
 
+    // console.log(specificLesson.codes[0].accessible_code)
+    // While I have limited lessons, codes will pull from the first language saved.
+    // I will need to filter through the codes to select for the proper language button
 
     return (
         <>
             {toggleSandbox ? (
             <>
                 <iframe title="accessible code sandbox"
-                    src={specificLesson.codes.map(code => code.accessible_code)}
+                    src={specificLesson.codes[0].accessible_code}
+                    // {specificLesson.codes.map(code => code.accessible_code)}
                     // "https://codesandbox.io/s/headerslesson1-accessible-o8z2fh"
                     // {specificLesson.codes.map(code => code.accessible_code)}
                     style={{ width: "100%", height: "700px", border: "0", borderRadius: "4px", overflow: "hidden" }}
@@ -52,7 +56,8 @@ function LessonSandbox({specificLesson, setSpecificLesson, hasLoaded, setHasLoad
             ) : (
             <>
                 <iframe title="inaccessible code sandbox"
-                    src={specificLesson.codes.map(code => code.inaccessible_code)}
+                    src={specificLesson.codes[0].inaccessible_code}
+                    // {specificLesson.codes.map(code => code.inaccessible_code)}
                     // "https://codesandbox.io/s/headerslesson1-inaccessible-5t7j5b"
                     // {specificLesson.codes.map(code => code.inaccessible_code)}
                     style={{ width: "100%", height: "700px", border: "0", borderRadius: "4px", overflow: "hidden" }}
