@@ -166,14 +166,6 @@ strong { color: darken(slategrey,20%); }
     padding: 2em; 
   }
 
-  /* @media all and (min-width: 800px) {
-    .language{ order: 1; }
-    .a-code{ order: 2; } 
-    .in-code { order: 3; }
-    .edit-btn    { order: 4; }
-    .new-btn { order: 5; }
-  } */
-
   .sandbox-wrapper {
     display: flex;  
     flex-flow: row wrap;

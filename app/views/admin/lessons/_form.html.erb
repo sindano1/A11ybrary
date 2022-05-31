@@ -16,7 +16,10 @@
 
 <div>
    <%= form.label :content, "Content:" %>
-   <%= form.text_area :content, :size => "70x50"  %>
+  
+   <%= form.rich_text_area :content  %>
+ 
+   <%# <%= @lesson.content %>
 </div>
 
 <div>
