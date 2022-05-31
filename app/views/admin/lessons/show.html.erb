@@ -7,16 +7,45 @@
 </div>
 
 <div>
-    <%= @lesson.title %>
+    Title: <%= @lesson.title %>
 </div>
+
 <div>
-    <%= @lesson.accessibility_features %>
+    Accessibility Features: <%= @lesson.accessibility_features %>
 </div>
+
 <div>
-    <%= @lesson.content %>
+    Content: <%= @lesson.content %>
 </div>
+
 <div>
-    <%= @lesson.lesson_type %>
+    Lesson Type: <%= @lesson.lesson_type %>
 </div>
+
+<div>
+    <%= link_to "Add new code", new_admin_lesson_code_path(@lesson.id) %>
+</div>
+
+<% @lesson.codes.each do |code| %>
+    <div>
+        Language: <%= code.language %>
+    <div>
+        Accessible Code: <%= code.accessible_code %>
+    </div>
+    <div>
+        Inaccessible Code: <%= code.inaccessible_code  %>
+    </div>
+
+    <div>
+        <%= link_to "edit code", edit_admin_lesson_code_path(@lesson.id, code.id) %>
+    </div>
+
+    <%# <div>
+        <%= link_to "delete code", admin_lesson_code_path(@lesson.id, code.id), {method: :delete} %>
+    <%# </div> %>
+
+
+
+<% end %>
 
 

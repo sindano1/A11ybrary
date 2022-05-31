@@ -11,7 +11,10 @@ Rails.application.routes.draw do
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
 
-    resources :lessons
+    resources :lessons do
+      resources :codes, except: [:index]
+    end
+
   end
 
 

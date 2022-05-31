@@ -1,0 +1,21 @@
+<%= form_with model: [:admin, @lesson, @code] do |form| %>
+
+<div>
+  <%= form.label :language, "Language:" %>
+  <%= form.text_field :language, size: "70x5"  %>
+</div>
+
+<div>
+   <%= form.label :accessible_code, "Accessible Code Sandbox URL:" %>
+   <%= form.text_field :accessible_code, :size => "70x5"  %>
+</div>
+<div>
+
+   <%= form.label :inaccessible_code, "Inccessible Code Sandbox URL:" %>
+   <%= form.text_field :inaccessible_code, :size => "70x5"  %>
+</div>
+
+<div>
+  <%= form.submit "Submit" %>
+  </div>
+<% end %>

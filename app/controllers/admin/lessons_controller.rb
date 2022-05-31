@@ -32,11 +32,11 @@ before_action :find_lesson, only: [:show, :update, :destroy, :edit]
         end
     end
 
-    def destroy
-        @lesson.destroy
-        head :no_content
-    # double check this one -> render json: {}, status :accepted
-    end
+    # def destroy
+    #     @lesson.destroy
+    #     head :no_content
+    # # double check this one -> render json: {}, status :accepted
+    # end
    
 
    private
