@@ -3,23 +3,25 @@
 <h1>Available Lessons</h1>
 <div class="Rtable Rtable--4cols Rtable--collapse">
 <% @lessons.each do |lesson| %>
+    <div class="lesson-summary">
     <div class="Rtable-cell Rtable-cell--head">
-        <%= lesson.title %>
+       Title: <%= lesson.title %>
         </div>
 
-    <div class="Rtable-cell">
-        <%= lesson.content %>
+    <div class="Rtable-cell-content">
+        Content: <%= lesson.content %>
         </div>
         
         <div class="Rtable-cell">
-        <%= link_to "edit", edit_admin_lesson_path(lesson.id) %>
+        <%= link_to "Edit Lesson", edit_admin_lesson_path(lesson.id) %>
         </div>
         <div class="Rtable-cell">
-        <%= link_to "view", admin_lesson_path(lesson.id) %>
+        <%= link_to "View Lesson", admin_lesson_path(lesson.id) %>
+    </div>
     </div>
 <% end %>
 </div>
 
 <div>
-    <%= link_to "new", new_admin_lesson_path %>
+    <%= link_to "Create New Lesson", new_admin_lesson_path %>
 </div>

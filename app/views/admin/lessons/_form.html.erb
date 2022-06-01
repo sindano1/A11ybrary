@@ -32,3 +32,14 @@
   <%= form.submit "Submit" %>
   </div>
 <% end %>
+
+    <div>
+        <%= link_to "View All lessons", admin_lessons_path %>
+    </div>
+<% if @lesson.id %>
+    <div class="Rtable-cell">
+        <%= link_to "View Lesson", admin_lesson_path(@lesson) %>
+    </div>
+    <% else %>
+    <div></div>
+<% end %>
