@@ -2,8 +2,6 @@ import React, { useContext, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
 import useLoginState from "./CustomHooks/useLoginState";
-// import 'flowbite';
-import { Collapse } from 'react-daisyui'
 import CompletedLessonCheck from "./CompletedLessonCheck";
 import useUserLessons from "./CustomHooks/useUserLessons";
 
@@ -26,7 +24,7 @@ function AllLessonsPage({lessons, setLessons}) {
                     <dl>
                         <div className="bg-gray-50 px-4 py-5 sm:grid sm:auto-cols-max sm:grid-cols-6 sm:gap-4 sm:px-6">
                             <dd className="mt-1 text-sm text-gray-900 sm:mt-0">{lessonInst.lesson.title}</dd>
-                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0">languages - in codes</dd>
+                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0">{lessonInst.codes.map(code => code.language)}</dd>
                             <dd className="mt-1 text-sm text-gray-900 sm:mt-0">{lessonInst.lesson.accessibility_features}</dd>
                             <dd className="mt-1 text-sm text-gray-900 sm:mt-0">{lessonInst.notes}</dd>
                             <Link to={`/lesson/${lessonInst.lesson.id}`}>
@@ -42,7 +40,6 @@ function AllLessonsPage({lessons, setLessons}) {
                 </div>
             )
         })
-        // const sortedLessons = mappedLessons.sort(title)
         return mappedLessons
     }
 
@@ -57,10 +54,10 @@ function AllLessonsPage({lessons, setLessons}) {
                     <div className="border-t border-gray-200">
                         <dl>
                             <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-6 sm:gap-4 sm:px-6">
-                                <dt className="text-sm font-medium text-gray-500">Lesson Title</dt>
-                                <dt className="text-sm font-medium text-gray-500">languages - in codes</dt>
+                                <dt className="text-sm font-medium text-gray-500">Title</dt>
+                                <dt className="text-sm font-medium text-gray-500">Languages</dt>
                                 <dt className="text-sm font-medium text-gray-500">Accessiblity Features</dt>
-                                <dt className="text-sm font-medium text-gray-500">Notes- needs button</dt>
+                                <dt className="text-sm font-medium text-gray-500">Notes</dt>
                                 <dt className="text-sm font-medium text-gray-500">Go To Lesson</dt>
                                 <dt className="text-sm font-medium text-gray-500">Completed</dt>
                             </div>

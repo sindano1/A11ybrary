@@ -171,7 +171,6 @@ strong { color: darken(slategrey,20%); }
     flex-flow: row wrap;
     font-weight: bold;
     text-align: center; 
-    border: 2px solid black;
     flex-wrap: nowrap;
     gap: 10px;
   }
@@ -182,31 +181,32 @@ strong { color: darken(slategrey,20%); }
     
   }
   .sandbox-item{
-      background: pink;
+
       flex-grow: 1;
+      border: 2px solid black
   }
 
 
   .header {
-    background: tomato;
+
     font-size: x-large;
   }
   
   .sandbox-url {
-    background: lightgreen;
+
   }
 
   .content {
     text-align: left;
-    background: deepskyblue;
+
   }
   
   .access-features{
-    background: gold;
+
   }
   
   .lesson-type {
-    background: hotpink;
+
   }
   .break-column {
     flex-basis: 100%;

@@ -6,7 +6,6 @@ import LessonContent from "./LessonContent";
 import LessonNotes from "./LessonNotes";
 import { UserContext } from "./UserContext";
 
-
 function LessonPage({ lessons, setLessons }) {
     const [specificLesson, setSpecificLesson] = useState({})
     const [hasLoaded, setHasLoaded] = useState(false)
@@ -37,6 +36,7 @@ function LessonPage({ lessons, setLessons }) {
                     <div className="pb-24 px-5">
                         <LessonNotes specificLesson={specificLesson} setSpecificLesson={setSpecificLesson} />
                         <LessonSandbox hasLoaded={hasLoaded} setHasLoaded={setHasLoaded} specificLesson={specificLesson} setSpecificLesson={setSpecificLesson} />
+                        <CompletedLessonCheck lessonInst={specificLesson} lessonState={lessons} setLessonState={setLessons} />
                     </div>
                 )
 

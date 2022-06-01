@@ -6,55 +6,91 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require 'faker'
+# require 'faker'
 
 puts 'seeding lessons'
-5.times do
+
     Lesson.create!(
-        title: `headers lesson #{i += 1}`, 
+        title: "Headers Lesson", 
         accessibility_features: "none",
-        has_transcript: [true, false].sample,
+        has_transcript: false,
         transcript: "none",
         content: "lorem ipsum",
-        lesson_type: "headers"
+        lesson_type: "Headers",
     )
-end
-3.times do
+
     Lesson.create!(
-        title: `contrast lesson #{i += 1}`, 
+        title: "Contrast Lesson", 
         accessibility_features: "none",
-        has_transcript: [true, false].sample,
+        has_transcript: false,
         transcript: "none",
         content: "lorem ipsum",
-        lesson_type: "contrast"
+        lesson_type: "Contrast"
     )
-end
+
+    Lesson.create!(
+        title: "ARIA Lesson", 
+        accessibility_features: "none",
+        has_transcript: false,
+        transcript: "none",
+        content: "lorem ipsum",
+        lesson_type: "ARIA"
+    )
+
 puts 'lessons seeded'
 
 
 puts 'Seeding users'
-5.times do
+
     User.create!(
-        username: Faker::Name.first_name ,
+        username: "sarah",
         password: "password",
-        email: Faker::Internet.email
+        email: "email@email.com",
+        is_admin: true
     )
-end
+
+    User.create!(
+        username: "brian",
+        password: "password",
+        email: "email@email.com",
+        is_admin: false
+    )
+
+    User.create!(
+        username: "chett",
+        password: "password",
+        email: "email@email.com",
+        is_admin: false
+    )
+
 puts 'users Seeded'
 
 
 puts "users taking lessons"
 User.all.each do |user|
-  rand(1..8).times do
-    # get a random book
-    lesson = Lesson.find(Lesson.pluck(:id).sample)
-
-    UserLesson.create!(
-        user_id: user.id, 
-        lesson_id: lesson.id, 
-        completed: [true, false].sample, 
-        notes: "doller sit"
-    )
+#   rand(1..8).times do
+#     # get a random book
+    # lesson = Lesson.find(Lesson.pluck(:id).sample)
+   
+        UserLesson.create!(
+            user_id: user.id, 
+            lesson_id: 1, 
+            completed: [true, false].sample, 
+            notes: "doller sit"
+        )
+        UserLesson.create!(
+            user_id: user.id, 
+            lesson_id: 2, 
+            completed: [true, false].sample, 
+            notes: "doller sit"
+        )
+        UserLesson.create!(
+            user_id: user.id, 
+            lesson_id: 3, 
+            completed: [true, false].sample, 
+            notes: "doller sit"
+        )
+    
   end
   puts "user_lessons seeded!"
 
@@ -67,5 +103,18 @@ Code.create!(
     accessible_code: "https://codesandbox.io/s/headerslesson1-accessible-o8z2fh",
     inaccessible_code: "https://codesandbox.io/s/headerslesson1-inaccessible-5t7j5b"
 )
+Code.create!(
+    # Headers lesson sandbox
+    lesson_id: 2,
+    language: "ReactJS",
+    accessible_code: "https://codesandbox.io/s/headerslesson1-accessible-o8z2fh",
+    inaccessible_code: "https://codesandbox.io/s/headerslesson1-inaccessible-5t7j5b"
+)
+Code.create!(
+    # Headers lesson sandbox
+    lesson_id: 3,
+    language: "ReactJS",
+    accessible_code: "https://codesandbox.io/s/headerslesson1-accessible-o8z2fh",
+    inaccessible_code: "https://codesandbox.io/s/headerslesson1-inaccessible-5t7j5b"
+)
 puts "code seeded"
-end

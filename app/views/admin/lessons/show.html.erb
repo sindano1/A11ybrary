@@ -8,6 +8,10 @@
     <div>
         <%= link_to "edit", edit_admin_lesson_path(@lesson.id) %>
     </div>
+<%# 
+    <div>
+        <%= link_to "Delete Lesson", admin_lesson_path(@lesson), method: :delete %>
+    <%# </div> %>
 
 
 
@@ -65,6 +69,7 @@
     <div >
         <%= link_to "Add new code", new_admin_lesson_code_path(@lesson.id) %>
     </div>
+
 
 
 
