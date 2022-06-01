@@ -17,7 +17,8 @@ function LessonContent() {
         <div>
             <h1 className="text-4xl">{singleLesson.title}</h1>
             <p>Available access features: {singleLesson.accessiblity_features}</p>
-            <p className="whitespace-pre-wrap">{singleLesson.content}</p>
+            <div dangerouslySetInnerHTML={{__html: singleLesson?.content?.body}} />
+            {/* <p className="whitespace-pre-wrap">{__html: singleLesson?.content?.body}</p> */}
         </div>
     )
 }
