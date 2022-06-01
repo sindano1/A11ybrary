@@ -3,4 +3,6 @@ class Lesson < ApplicationRecord
     has_many :users, through: :user_lessons
 
     has_many :codes, dependent: :destroy
+
+    has_rich_text :content
 end

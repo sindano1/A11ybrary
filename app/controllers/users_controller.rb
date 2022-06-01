@@ -42,7 +42,7 @@ private
     end
 
     def user_params
-        params.permit(:username, :password, :email, :new_username, :new_password)
+        params.permit(:username, :password, :email, :new_username, :new_password, :is_admin)
     end
 
 end

@@ -1,0 +1,11 @@
+<p>We are here</p>
+
+<%= form_with model: @user do |form| %>
+  <%= form.label :username, "Username:" %>
+  <%= form.text_field :username %>
+  
+  <%= form.label :password, "Password:" %>
+  <%= form.password_field :password %>
+
+  <%= form.submit "Login" %>
+<% end %>

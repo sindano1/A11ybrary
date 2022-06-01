@@ -1,0 +1,25 @@
+<link href="../../../assets/style.css" rel="stylesheet" />
+
+<h1>Available Lessons</h1>
+<div class="Rtable Rtable--4cols Rtable--collapse">
+<% @lessons.each do |lesson| %>
+    <div class="Rtable-cell Rtable-cell--head">
+        <%= lesson.title %>
+        </div>
+
+    <div class="Rtable-cell">
+        <%= lesson.content %>
+        </div>
+        
+        <div class="Rtable-cell">
+        <%= link_to "edit", edit_admin_lesson_path(lesson.id) %>
+        </div>
+        <div class="Rtable-cell">
+        <%= link_to "view", admin_lesson_path(lesson.id) %>
+    </div>
+<% end %>
+</div>
+
+<div>
+    <%= link_to "new", new_admin_lesson_path %>
+</div>

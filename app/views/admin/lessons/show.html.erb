@@ -1,0 +1,70 @@
+<link href="../../../assets/style.css" rel="stylesheet" />
+
+
+    <div>
+        <%= link_to "view all lessons", admin_lessons_path %>
+    </div>
+
+    <div>
+        <%= link_to "edit", edit_admin_lesson_path(@lesson.id) %>
+    </div>
+
+
+
+<div class='wrapper'>
+    <header class='header'>
+        Title: <%= @lesson.title %>
+    </header>
+
+    <div class="aside access-features">
+        Accessibility Features: <%= @lesson.accessibility_features %>
+    </div>
+
+    <div class="aside lesson-type">
+        Lesson Type: <%= @lesson.lesson_type %>
+    </div>
+
+
+    <div class="trix-content">
+        <%= yield %>
+    </div>
+    <div class="content">
+        Content: <%= @lesson.content %>
+    </div>
+
+    <div class="sandbox-url">
+        <div class="sandbox">
+            <% @lesson.codes.each do |code| %>
+                <div class="sandbox-wrapper">
+                    <div class="sandbox-item">
+                        Language: <%= code.language %>
+                    </div>
+
+                    <div class="sandbox-item">
+                        Accessible Code: <%= code.accessible_code %>
+                    </div>
+
+                    <div class="sandbox-item">
+                        Inaccessible Code: <%= code.inaccessible_code  %>
+                    </div>
+
+                    <div class="break"></div>
+
+                    <div class="sandbox-item">
+                        <%= link_to "edit code", edit_admin_lesson_code_path(@lesson.id, code.id) %>
+                    </div>
+
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+        <%# <div>
+            <%= link_to "delete code", admin_lesson_code_path(@lesson.id, code.id), {method: :delete} %>
+        <%# </div> %>
+    <div >
+        <%= link_to "Add new code", new_admin_lesson_code_path(@lesson.id) %>
+    </div>
+
+
+

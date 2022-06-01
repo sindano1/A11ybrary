@@ -1,0 +1,34 @@
+<%= form_with model: [:admin, @lesson] do |form| %>
+<div>
+  <%= form.label :title, "Title:" %>
+  <%= form.text_field :title, size: "70x5"  %>
+</div>
+
+<div>
+  <%= form.label :accessibility_features, "Accessibility Features:" %>
+  <%= form.text_field :accessibility_features, size: "70x5"  %>
+<%# this should have been an array woops %>
+
+ <%# <%= form.label :has_transcript, "Has Transcript:" %>
+  <%# this will need a radio yes or no%>
+  <%# transcript %>
+</div>
+
+<div>
+   <%= form.label :content, "Content:" %>
+  
+   <%= form.rich_text_area :content  %>
+ 
+   <%# <%= @lesson.content %>
+</div>
+
+<div>
+   <%= form.label :lesson_type, "Lesson Type:" %>
+   <%= form.text_field :lesson_type, size: "70x5"  %>
+   <%# would like this to be a drop down but db is not filled out enough yet %>
+</div>
+
+<div>
+  <%= form.submit "Submit" %>
+  </div>
+<% end %>
