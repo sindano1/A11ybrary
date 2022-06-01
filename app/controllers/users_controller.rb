@@ -13,6 +13,9 @@ class UsersController < ApplicationController
     def create
         user = User.create!(user_params)
         session[:user_id] =  user.id
+         Lesson.all.each do |lesson|
+            UserLesson.create!(user_id: user.id, lesson_id: lesson.id, notes: nil, completed: false)
+         end
         render json: user, status: :created
     end
 

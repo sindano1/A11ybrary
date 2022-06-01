@@ -34,7 +34,8 @@ before_action :find_lesson, only: [:show, :update, :destroy, :edit]
 
     # def destroy
     #     @lesson.destroy
-    #     head :no_content
+    #         flash.now[:notice] = 'Account deleted'
+    #         redirect_to admin_lessons_path
     # # double check this one -> render json: {}, status :accepted
     # end
    

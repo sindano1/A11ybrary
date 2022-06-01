@@ -2,12 +2,16 @@
 
 
     <div>
-        <%= link_to "view all lessons", admin_lessons_path %>
+        <%= link_to "View All lessons", admin_lessons_path %>
     </div>
 
     <div>
-        <%= link_to "edit", edit_admin_lesson_path(@lesson.id) %>
+        <%= link_to "Edit This Lesson", edit_admin_lesson_path(@lesson.id) %>
     </div>
+<%# 
+    <div>
+        <%= link_to "Delete Lesson", admin_lesson_path(@lesson), method: :delete %>
+    <%# </div> %>
 
 
 
@@ -51,7 +55,7 @@
                     <div class="break"></div>
 
                     <div class="sandbox-item">
-                        <%= link_to "edit code", edit_admin_lesson_code_path(@lesson.id, code.id) %>
+                        <%= link_to "Edit Code", edit_admin_lesson_code_path(@lesson.id, code.id) %>
                     </div>
 
                 </div>
@@ -63,8 +67,9 @@
             <%= link_to "delete code", admin_lesson_code_path(@lesson.id, code.id), {method: :delete} %>
         <%# </div> %>
     <div >
-        <%= link_to "Add new code", new_admin_lesson_code_path(@lesson.id) %>
+        <%= link_to "Add New Code", new_admin_lesson_code_path(@lesson.id) %>
     </div>
+
 
 
 
