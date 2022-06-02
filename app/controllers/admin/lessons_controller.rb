@@ -9,6 +9,7 @@ before_action :find_lesson, only: [:show, :update, :destroy, :edit]
     end
 
     def show
+
     end
 
     def new
@@ -32,12 +33,11 @@ before_action :find_lesson, only: [:show, :update, :destroy, :edit]
         end
     end
 
-    # def destroy
-    #     @lesson.destroy
-    #         flash.now[:notice] = 'Account deleted'
-    #         redirect_to admin_lessons_path
-    # # double check this one -> render json: {}, status :accepted
-    # end
+    def destroy
+        @lesson.destroy
+            redirect_to admin_lessons_path
+    # double check this one -> render json: {}, status :accepted
+    end
    
 
    private

@@ -1017,6 +1017,11 @@
   dependencies:
     "spark-md5" "^3.0.0"
 
+"@rails/ujs@^6.0.5":
+  "integrity" "sha512-6nEyc+7jhVQGx84sO7yalQq1G+ZgJa72/5q9Avsm4yIZqVymvLEftK90+B0XZhvJzbiNnbDIFC4Wx5mgHo7lTw=="
+  "resolved" "https://registry.npmjs.org/@rails/ujs/-/ujs-6.0.5.tgz"
+  "version" "6.0.5"
+
 "@rails/webpacker@5.4.3":
   "integrity" "sha512-tEM8tpUtfx6FxKwcuQ9+v6pzgqM5LeAdhT6IJ4Te3BPKFO1xrGrXugqeRuZ+gE8ASDZRTOK6yuQkapOpuX5JdA=="
   "resolved" "https://registry.npmjs.org/@rails/webpacker/-/webpacker-5.4.3.tgz"

@@ -66,6 +66,8 @@ html {
   background-color: #EEE; 
 }
 body {
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   min-height: 100%;
   margin: 0 auto;
@@ -76,6 +78,8 @@ body {
   background-color: white;
   border: double 3px #DDD;
   border-top: none; border-bottom: none;
+  justify-content: center;
+  
 }
 h1, h2, h3, h4, h5, h6 { margin-top: 0; }
 h3 { font-size: 1.2em; }
@@ -200,12 +204,12 @@ strong { color: darken(slategrey,20%); }
   
   .sandbox-wrapper > * {
     padding: 10px;
-    flex: 1 100%;
+    /* flex: 1 100%; */
     
   }
   .sandbox-item{
 
-      flex-grow: 1;
+      /* flex-grow: 1; */
       border: 2px solid black
   }
 
@@ -248,14 +252,54 @@ strong { color: darken(slategrey,20%); }
     border: 2px solid black;
     flex-flow: row nowrap;
     box-sizing: border-box;
-  min-height: 100%;
-  margin: 0 auto;
-  padding: 2em;
-  max-width: 100%;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 1.2em;
-  background-color: pink;
-  border: double 3px #DDD;
-  border-top: none; border-bottom: none;
+    min-height: 100%;
+    margin: 0 auto;
+    padding: 2em;
+    max-width: 100%;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.2em;
+    background-color: pink;
+    border: double 3px #DDD;
+    border-top: none; border-bottom: none;
   }
+
+  .links{
+    padding: 1em
+  }
+
+  .available-lessons{
+    background-color: #6d27d9;
+    flex-flow: row nowrap;
+    color: white; > h1, { color: white; }
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+
+  }
+
+  .a{
+    color: white
+    
+  }
+  a:visited {
+    color: #6d27d9;
+  }
+
+  .button-bar{
+    display: flex;
+    felx-flow: row nowrap;
+    justify-content: center;
+    font-color: white; > a:visited, { color: white; };
+    /* background-color: #6d27d9; */
+    a:visitied, {color: white}
+
+  }
+
+  /* .single-lesson-wrapper{
+    display: flex;
+    max-width: 90%;
+    border: 1px solid red;
+    justify-content: center;
+    flex-direction: column;
+  } */
   

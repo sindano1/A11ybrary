@@ -1,6 +1,7 @@
 // application.js
 import "trix"
 import "@rails/actiontext"
+import Rails from "@rails/ujs"
 
 
 /* eslint no-console:0 */
@@ -24,3 +25,5 @@ console.log('Hello World from Webpacker')
 
 require("trix")
 require("@rails/actiontext")
+
+Rails.start()

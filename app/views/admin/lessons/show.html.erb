@@ -1,13 +1,15 @@
 <link href="../../../assets/style.css" rel="stylesheet" />
-
-
-    <div>
+<div class="single-lesson-wrapper">
+<div class="button-bar">
+    <div class="Rtable-cell">
         <%= link_to "View All lessons", admin_lessons_path %>
     </div>
 
-    <div>
+    <div class="Rtable-cell">
         <%= link_to "Edit This Lesson", edit_admin_lesson_path(@lesson.id) %>
     </div>
+
+</div>
 <%# 
     <div>
         <%= link_to "Delete Lesson", admin_lesson_path(@lesson), method: :delete %>
@@ -58,17 +60,25 @@
                         <%= link_to "Edit Code", edit_admin_lesson_code_path(@lesson.id, code.id) %>
                     </div>
 
+                     <div class="sandbox-item">
+                         <%= link_to "Delete Code", admin_lesson_code_path(@lesson.id, code.id), {method: :delete} %>
+                    </div>
+
                 </div>
             <% end %>
         </div>
     </div>
 </div>
-        <%# <div>
-            <%= link_to "delete code", admin_lesson_code_path(@lesson.id, code.id), {method: :delete} %>
-        <%# </div> %>
-    <div >
+
+    <div class="Rtable-cell">
         <%= link_to "Add New Code", new_admin_lesson_code_path(@lesson.id) %>
     </div>
+
+      <div class="Rtable-cell">
+            <%= link_to "Delete This Lesson", admin_lesson_path(@lesson.id), { method: :delete, data: { confirm: "Are you sure?" } } %>
+        </div>
+
+        </div>
 
 
 

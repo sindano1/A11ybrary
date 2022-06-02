@@ -1,6 +1,11 @@
 <link href="../../../assets/style.css" rel="stylesheet" />
+ 
+<h1 class="available-lessons">Available Lessons</h1>
 
-<h1>Available Lessons</h1>
+<div class="links">
+    <%= link_to "Create New Lesson", new_admin_lesson_path %>
+</div>
+
 <div class="Rtable Rtable--4cols Rtable--collapse">
 <% @lessons.each do |lesson| %>
     <div class="lesson-summary">
@@ -12,16 +17,20 @@
         Content: <%= lesson.content %>
         </div>
         
+        <div class="button-bar">
+
         <div class="Rtable-cell">
-        <%= link_to "Edit Lesson", edit_admin_lesson_path(lesson.id) %>
+            <%= link_to "View Lesson", admin_lesson_path(lesson.id) %>
         </div>
+
         <div class="Rtable-cell">
-        <%= link_to "View Lesson", admin_lesson_path(lesson.id) %>
-    </div>
+            <%= link_to "Edit Lesson", edit_admin_lesson_path(lesson.id) %>
+        </div>
+
+        <div class="Rtable-cell">
+            <%= link_to "Delete Lesson", admin_lesson_path(lesson.id), { method: :delete, data: { confirm: "Are you sure?" } } %>
+        </div>
+        </div>
     </div>
 <% end %>
-</div>
-
-<div>
-    <%= link_to "Create New Lesson", new_admin_lesson_path %>
 </div>

@@ -1,6 +1,6 @@
 class Admin::CodesController < AdminController
     before_action :find_code, only: [:show, :update, :destroy, :edit]
-    before_action :find_lesson, except: [:destroy]
+    before_action :find_lesson
     # skip_before_action :authorize, only: [:create, :show, :index]
 
     # def index
@@ -33,7 +33,6 @@ class Admin::CodesController < AdminController
 
    def destroy
    #don't forget to add before action
-   sdfa
     @code.destroy
     redirect_to admin_lesson_path(@lesson.id)
     # double check this one -> render json: {}, status :accepted
